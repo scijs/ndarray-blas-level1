@@ -78,6 +78,21 @@ exports.asum = cwise({
   }
 });
 
-exports.iamax = function() {
-  console.error('iamax is not yet implemented in ndarray-blas-level1');
-};
+exports.iamax = cwise({
+  args:['array'],
+  pre: function() {
+    this.maxValue = Number.NEGATIVE_INFINITY;
+    this.maxIndex = 0;
+    this.index = 0;
+  },
+  body: function(a) {
+    if (a > this.maxValue) {
+        this.maxValue = a;
+        this.maxIndex = this.index;
+    }
+    this.index++;
+  },
+  post: function() {
+    return this.maxIndex;
+  }
+});
