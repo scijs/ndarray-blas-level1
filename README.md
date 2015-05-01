@@ -4,6 +4,11 @@
 
 BLAS Level 1 operations for [ndarrays](https://github.com/scijs/ndarray)
 
+## Introduction
+
+BLAS Level 1 defines basic vector operations.
+
+A quick note on why this exists: The goal is not to reinvent the wheel. There are lots of implementations of BLAS out there. Even for JS. There's a [nodejs wrapper for LAPACK](https://www.npmjs.com/package/lapack). Depending on what you need, maybe you should use that. The goal of this is to bring standardized BLAS operations to [ndarrays](https://github.com/scijs/ndarray) so that algorithms can be made as future-resistant as possible by writing them in terms of standardized, easily-translatable operations.
 
 ## Usage
 
