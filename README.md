@@ -1,5 +1,7 @@
 # ndarray-blas-level1
 
+[![Build Status](https://travis-ci.org/scijs/ndarray-blas-level1.svg?branch=master)](https://travis-ci.org/scijs/ndarray-blas-level1) [![npm version](https://badge.fury.io/js/ndarray-blas-level1.svg)](http://badge.fury.io/js/ndarray-blas-level1)
+
 BLAS Level 1 operations for [ndarrays](https://github.com/scijs/ndarray)
 
 
