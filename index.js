@@ -86,8 +86,9 @@ exports.iamax = cwise({
     this.index = 0;
   },
   body: function(a) {
-    if (Math.abs(a) > this.maxValue) {
-        this.maxValue = a;
+    var a_abs = Math.abs(a);
+    if (a_abs > this.maxValue) {
+        this.maxValue = a_abs;
         this.maxIndex = this.index;
     }
     this.index++;
