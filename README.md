@@ -9,40 +9,17 @@ This library implements the basic vector operations of the Level 1 Basic Linear 
 
 *NB: This library performs no checks to ensure you're only passing one-dimensional vectors. That's either a bug or a feature, depending on how you think about it.*
 
-### `swap(x,y)`
-Swaps the elements of x and y.
-![swap](/docs/images/swap.png)
-
-### `scal(alpha, x)`
-Multiple vector x by scalar alpha.
-![scal](/docs/images/scal.png)
-
-### `copy(x,y)`
-Copy x into y.
-![copy](/docs/images/copy.png)
-
-### `axpy(alpha, x, y)`
-Multiple x by alpha and add it to y.
-![axpy](/docs/images/axpy.png)
-
-### `cpsc(alpha, x, y)`
-Multiply x by alpha and assign it to y.
-![cpsc](/docs/images/cpsc.png)
-
-### `dot(x,y)`
-Calculate the inner product of x and y.
-![dot](/docs/images/dot.png)
-
-### `nrm2(x)`
-Calculate the 2-norm of x.
-![nrm2](/docs/images/nrm2.png)
-
-### `asum(x)`
-Calculate the 1-norm of x.
-![asum](/docs/images/asum.png)
-
-### `iamax(x)`
-*Not yet implemented*: Determine the argmax of x. See [ndarray-ops](https://github.com/scijs/ndarray-ops) for a robust implementation.
+| Function | Operation | Description |
+| -------- | --------- | ----------- |
+| `swap(x,y)` | ![swap](/docs/images/swap.png) | Swap the elements of x and y |
+| `scal(alpha,x)` | ![scal](/docs/images/scal.png) | Multiple vector x by scalar alpha |
+| `copy(x,y)` | ![copy](/docs/images/copy.png) | Copy x into y |
+| `axpy(alpha, x, y)` | ![axpy](/docs/images/axpy.png) | Multiple x by alpha and add it to y |
+| `cpsc(alpha, x, y)` | ![cpsc](/docs/images/cpsc.png) | Multiply x by alpha and assign it to y |
+| `dot(x,y)` | ![dot](/docs/images/dot.png) | Calculate the inner product of x and y. |
+| `nrm2(x)` | ![nrm2](/docs/images/nrm2.png) | Calculate the 2-norm of x |
+| `asum(x)` | ![asum](/docs/images/asum.png) | Calculate the 1-norm of x |
+| `iamax(x)` |  | Not yet implemented |
 
 
 ## Example
