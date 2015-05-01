@@ -29,5 +29,10 @@
   },
   "dependencies": {
     "cwise": "^1.0.5"
+  },
+  "browserify": {
+    "transform": [
+      "cwise"
+    ]
   }
 }
