@@ -22,10 +22,10 @@ describe("BLAS Level 1",function() {
   beforeEach(function() {
     var A = [1,2,3,4];
     var B = [2,1,4,3];
-    a = ndarray(new Float32Array(A));
-    a0 = ndarray(new Float32Array(A));
-    b = ndarray(new Float32Array(B));
-    b0 = ndarray(new Float32Array(B));
+    a = ndarray(new Float64Array(A));
+    a0 = ndarray(new Float64Array(A));
+    b = ndarray(new Float64Array(B));
+    b0 = ndarray(new Float64Array(B));
   });
 
   it('swap',function() {
@@ -68,8 +68,9 @@ describe("BLAS Level 1",function() {
     assert.closeTo( blas1.asum(a), 1 + 2 + 3 + 4, 1e-8 );
   });
 
-  xit('iamax',function() {
-    assert.closeTo( blas1.iamax(a), 3 );
+  it('iamax',function() {
+    assert( blas1.iamax(a) === 3 );
+    assert( blas1.iamax(b) === 2 );
   });
 
 
