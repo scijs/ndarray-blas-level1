@@ -1,0 +1,33 @@
+{
+  "name": "ndarray-blas-level1",
+  "version": "1.0.0",
+  "description": "BLAS Level 1 operations for ndarrays",
+  "main": "index.js",
+  "author": "Ricky Reusser",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rreusser/ndarray-blas-level1.git"
+  },
+  "scripts": {
+    "test": "mocha",
+    "lint": "jshint **.js"
+  },
+  "keywords": [
+    "blas",
+    "ndarray",
+    "scijs",
+    "linearalgebra"
+  ],
+  "devDependencies": {
+    "chai": "*",
+    "jshint": "*",
+    "mocha": "*",
+    "ndarray": "^1.0.16",
+    "ndarray-ops": "^1.2.2",
+    "ndarray-scratch": "^1.1.1"
+  },
+  "dependencies": {
+    "cwise": "^1.0.5"
+  }
+}
