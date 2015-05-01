@@ -11,34 +11,42 @@ This library implements the basic vector operations of the Level 1 Basic Linear 
 
 ### `swap(x,y)`
 Swaps the elements of x and y.
+
 ![swap](/docs/images/swap.png)
 
 ### `scal(alpha, x)`
 Multiple vector x by scalar alpha.
+
 ![scal](/docs/images/scal.png)
 
 ### `copy(x,y)`
 Copy x into y.
+
 ![copy](/docs/images/copy.png)
 
 ### `axpy(alpha, x, y)`
 Multiple x by alpha and add it to y.
+
 ![axpy](/docs/images/axpy.png)
 
 ### `cpsc(alpha, x, y)`
 Multiply x by alpha and assign it to y.
+
 ![cpsc](/docs/images/cpsc.png)
 
 ### `dot(x,y)`
 Calculate the inner product of x and y.
+
 ![dot](/docs/images/dot.png)
 
 ### `nrm2(x)`
 Calculate the 2-norm of x.
+
 ![nrm2](/docs/images/nrm2.png)
 
 ### `asum(x)`
 Calculate the 1-norm of x.
+
 ![asum](/docs/images/asum.png)
 
 ### `iamax(x)`
