@@ -4,13 +4,13 @@
 
 [BLAS Level 1 operations](http://www.netlib.org/blas/) for [ndarrays](https://github.com/scijs/ndarray)
 
-A quick note on why this exists: The goal is not to reinvent the wheel. There are lots of implementations of BLAS out there. Even for JS. There's a [nodejs wrapper for LAPACK](https://www.npmjs.com/package/lapack). Depending on what you need, maybe you should use that. The goal of this is to bring standardized BLAS operations to [ndarrays](https://github.com/scijs/ndarray) so that algorithms can be made as future-resistant as possible by writing them in terms of standardized, easily-translatable operations.
+*A quick note on why this exists*: The goal is not to reinvent the wheel. There are lots of implementations of BLAS out there. Even for JS. There's a [nodejs wrapper for LAPACK](https://www.npmjs.com/package/lapack). Depending on what you need, maybe you should use that. The goal of this is to bring standardized BLAS operations to [ndarrays](https://github.com/scijs/ndarray) so that algorithms can be made as future-resistant as possible by writing them in terms of standardized, easily-translatable operations.
 
 ## Usage
 
 This library implements the basic vector operations of the Level 1 Basic Linear Algebra Subprograms (BLAS). Many of these functions are also implemented in [ndarray-ops](https://github.com/scijs/ndarray-ops)—which also has functions that are not included in BLAS. So the right answer is probably some blend of the two. This library exists mainly to frame things in a relatively standard, coherent framework.
 
-*NB: This library performs no checks to ensure you're only passing one-dimensional vectors. That's either a bug or a feature, depending on how you think about it.*
+*NB: This library performs no checks to ensure you're only passing one-dimensional vectors. That's either a bug or a feature, depending on how you think about it. If you pass these operations a matrix or higher-dimensional array, they will be treated as vectors.*
 
 | Function | Operation | Description |
 | -------- | --------- | ----------- |
