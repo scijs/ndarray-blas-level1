@@ -81,12 +81,12 @@ exports.asum = cwise({
 exports.iamax = cwise({
   args:['array'],
   pre: function() {
-    this.maxValue = Number.NEGATIVE_INFINITY;
+    this.maxValue = 0;
     this.maxIndex = 0;
     this.index = 0;
   },
   body: function(a) {
-    if (a > this.maxValue) {
+    if (Math.abs(a) > this.maxValue) {
         this.maxValue = a;
         this.maxIndex = this.index;
     }
