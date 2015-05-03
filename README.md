@@ -22,7 +22,7 @@ This library implements the basic vector operations of the Level 1 Basic Linear 
 | `dot(x,y)` | ![dot](/docs/images/dot.png) | Calculate the inner product of x and y. |
 | `nrm2(x)` | ![nrm2](/docs/images/nrm2.png) | Calculate the 2-norm of x |
 | `asum(x)` | ![asum](/docs/images/asum.png) | Calculate the 1-norm of x |
-| `iamax(x)` |  | the argmax of x |
+| `iamax(x)` |  ![asum](/docs/images/iamax.png)  | the argmax of x |
 
 
 ## Example
