@@ -60,6 +60,10 @@ describe("BLAS Level 1",function() {
     assert.closeTo( blas1.dot(a,b), 1*2 + 2*1 + 3*4 + 4*3, 1e-8 );
   });
 
+  it('dot (with identical input simplification)',function() {
+    assert.closeTo( blas1.dot(a,a), 1*1 + 2*2 + 3*3 + 4*4, 1e-8 );
+  });
+
   it('nrm2',function() {
     assert.closeTo( blas1.nrm2(a), Math.sqrt(1*1+2*2+3*3+4*4), 1e-8);
   });

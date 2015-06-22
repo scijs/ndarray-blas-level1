@@ -32,18 +32,35 @@ exports.axpy = cwise({
   }
 });
 
-exports.dot = cwise({
-  args:['array', 'array'],
-  pre: function() {
-    this.sum = 0;
-  },
-  body: function(a,b) {
-    this.sum += a * b;
-  },
-  post: function() {
-    return this.sum;
+exports.dot = function(a,b) {
+  if( a === b ) {
+    return cwise({
+      args:['array'],
+      pre: function() {
+        this.sum = 0;
+      },
+      body: function(a) {
+        this.sum += a * a;
+      },
+      post: function() {
+        return this.sum;
+      }
+    })(a)
+  } else {
+    return cwise({
+      args:['array', 'array'],
+      pre: function() {
+        this.sum = 0;
+      },
+      body: function(a,b) {
+        this.sum += a * b;
+      },
+      post: function() {
+        return this.sum;
+      }
+    })(a,b)
   }
-});
+};
 
 exports.cpsc = cwise({
   args:['scalar', 'array', 'array'],
