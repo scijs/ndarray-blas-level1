@@ -96,19 +96,17 @@ exports.asum = cwise({
 });
 
 exports.iamax = cwise({
-  args:['array'],
+  args:['index','array'],
   pre: function() {
-    this.maxValue = 0;
-    this.maxIndex = 0;
-    this.index = 0;
+    this.maxValue = -1;
+    this.maxIndex = undefined;
   },
-  body: function(a) {
+  body: function(i,a) {
     var a_abs = Math.abs(a);
     if (a_abs > this.maxValue) {
         this.maxValue = a_abs;
-        this.maxIndex = this.index;
+        this.maxIndex = i.slice(0);
     }
-    this.index++;
   },
   post: function() {
     return this.maxIndex;

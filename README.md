@@ -24,7 +24,6 @@ This library implements the basic vector operations of the Level 1 Basic Linear 
 | `asum(x)` | ![asum](/docs/images/asum.png) | Calculate the 1-norm of x |
 | `iamax(x)` |  ![asum](/docs/images/iamax.png)  | the argmax of x |
 
-
 ## Example
 
 Usage should be pretty straightforward. There aren't really any options or variations.
