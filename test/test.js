@@ -73,12 +73,9 @@ describe("BLAS Level 1",function() {
   });
 
   it('iamax',function() {
-    assert.deepEqual( blas1.iamax(a), [3] );
-    assert.deepEqual( blas1.iamax(b), [2] );
+    assert.deepEqual( blas1.iamax(a), 3 );
+    assert.deepEqual( blas1.iamax(b), 2 );
   });
-
-
-
 
 });
 

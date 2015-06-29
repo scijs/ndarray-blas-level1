@@ -10,7 +10,7 @@
 
 This library implements the basic vector operations of the Level 1 Basic Linear Algebra Subprograms (BLAS). Many of these functions are also implemented in [ndarray-ops](https://github.com/scijs/ndarray-ops)—which also has functions that are not included in BLAS. So the right answer is probably some blend of the two. This library exists mainly to frame things in a relatively standard, coherent framework.
 
-*NB: This library performs no checks to ensure you're only passing one-dimensional vectors. That's either a bug or a feature, depending on how you think about it. If you pass these operations a matrix or higher-dimensional array, they will be treated as vectors.*
+*NB: This library performs no checks to ensure you're only passing one-dimensional vectors. It simply iterates across the first dimension of the array, so if you pass it higher-dimensional arrays, don't expect a meaningful result.*
 
 | Function | Operation | Description |
 | -------- | --------- | ----------- |

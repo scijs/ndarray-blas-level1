@@ -1,114 +1,122 @@
 'use strict';
 
-var cwise = require('cwise');
-
-exports.swap = cwise({
-  args: ['array', 'array'],
-  body: function(a,b) {
-    var tmp = a;
-    a = b;
-    b = tmp;
+exports.swap = function(x, y) {
+  var dx = x.data, dy = y.data, tmp
+  var ox = x.stride[0]
+  var oy = y.stride[0]
+  var px = x.offset
+  var py = y.offset
+  for(var i=x.shape[0]-1; i>=0; i--, px+=ox, py+=oy ) {
+    tmp = dx[px]
+    dx[px] = dy[py]
+    dy[py] = tmp
   }
-});
+}
 
-exports.scal = cwise({
-  args: ['scalar', 'array'],
-  body: function(alpha,x) {
-    x *= alpha;
+
+exports.scal = function(alpha, x) {
+  var dx = x.data
+  var ox = x.stride[0]
+  var px = x.offset
+  for(var i=x.shape[0]-1; i>=0; i--, px+=ox) {
+    dx[px] *= alpha
   }
-});
+}
 
-exports.copy = cwise({
-  args: ['array', 'array'],
-  body: function(x,y) {
-    y = x;
+exports.copy = function(x, y) {
+  var dx = x.data, dy = y.data
+  var ox = x.stride[0]
+  var oy = y.stride[0]
+  var px = x.offset
+  var py = y.offset
+  for(var i=x.shape[0]-1; i>=0; i--, px+=ox, py+=oy ) {
+    dy[py] = dx[px]
   }
-});
+}
 
-exports.axpy = cwise({
-  args:['scalar', 'array', 'array'],
-  body: function(alpha, x, y) {
-    y += alpha * x;
+exports.axpy = function(alpha, x, y) {
+  var dx = x.data, dy = y.data
+  var ox = x.stride[0]
+  var oy = y.stride[0]
+  var px = x.offset
+  var py = y.offset
+  for(var i=x.shape[0]-1; i>=0; i--, px+=ox, py+=oy ) {
+    dy[py] += alpha*dx[px]
   }
-});
+}
 
-exports.dot = function(a,b) {
-  if( a === b ) {
-    return cwise({
-      args:['array'],
-      pre: function() {
-        this.sum = 0;
-      },
-      body: function(a) {
-        this.sum += a * a;
-      },
-      post: function() {
-        return this.sum;
-      }
-    })(a)
-  } else {
-    return cwise({
-      args:['array', 'array'],
-      pre: function() {
-        this.sum = 0;
-      },
-      body: function(a,b) {
-        this.sum += a * b;
-      },
-      post: function() {
-        return this.sum;
-      }
-    })(a,b)
-  }
-};
+exports.dot = function(x,y) {
+  var i, tmp
+  var dx = x.data
+  var ox = x.stride[0]
+  var px = x.offset
 
-exports.cpsc = cwise({
-  args:['scalar', 'array', 'array'],
-  body: function(alpha, x, y) {
-    y = alpha * x;
-  }
-});
-
-exports.nrm2 = cwise({
-  args:['array'],
-  pre: function() {
-    this.sum = 0;
-  },
-  body: function(a) {
-    this.sum += a * a;
-  },
-  post: function() {
-    return Math.sqrt(this.sum);
-  }
-});
-
-exports.asum = cwise({
-  args:['array'],
-  pre: function() {
-    this.sum = 0;
-  },
-  body: function(a) {
-    this.sum += Math.abs(a);
-  },
-  post: function() {
-    return this.sum;
-  }
-});
-
-exports.iamax = cwise({
-  args:['index','array'],
-  pre: function() {
-    this.maxValue = -1;
-    this.maxIndex = undefined;
-  },
-  body: function(i,a) {
-    var a_abs = Math.abs(a);
-    if (a_abs > this.maxValue) {
-        this.maxValue = a_abs;
-        this.maxIndex = i.slice(0);
+  var sum = 0
+  if( x===y) {
+    for(i=x.shape[0]-1; i>=0; i--, px+=ox ) {
+      tmp = dx[px]
+      sum += tmp*tmp
     }
-  },
-  post: function() {
-    return this.maxIndex;
+  } else {
+    var dy = y.data
+    var oy = y.stride[0]
+    var py = y.offset
+    for(i=x.shape[0]-1; i>=0; i--, px+=ox, py+=oy ) {
+      sum += dy[py] * dx[px]
+    }
   }
-});
+  return sum
+}
+
+
+exports.cpsc = function(alpha, x, y) {
+  var dx = x.data, dy = y.data
+  var ox = x.stride[0]
+  var oy = y.stride[0]
+  var px = x.offset
+  var py = y.offset
+  for(var i=x.shape[0]-1; i>=0; i--, px+=ox, py+=oy ) {
+    dy[py] = alpha*dx[px]
+  }
+}
+
+exports.nrm2 = function(x) {
+  var i, tmp
+  var dx = x.data
+  var ox = x.stride[0]
+  var px = x.offset
+  var sum = 0
+  for(i=x.shape[0]-1; i>=0; i--, px+=ox ) {
+    tmp = dx[px]
+    sum += tmp*tmp
+  }
+  return Math.sqrt(sum)
+}
+
+exports.asum = function(x) {
+  var i, tmp
+  var dx = x.data
+  var ox = x.stride[0]
+  var px = x.offset
+  var sum = 0
+  for(i=x.shape[0]-1; i>=0; i--, px+=ox ) {
+    sum += Math.abs(dx[px])
+  }
+  return sum
+}
+
+exports.iamax = function(x) {
+  var i, tmp, imax, xmax = -Infinity
+  var dx = x.data
+  var ox = x.stride[0]
+  var px = x.offset
+  var sum = 0, l = x.shape[0]
+  for(i=0; i<l; i++, px+=ox ) {
+    tmp = Math.abs(dx[px])
+    if( tmp > xmax ) {
+      xmax = tmp
+      imax = i
+    }
+  }
+  return imax
+}
