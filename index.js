@@ -1,6 +1,7 @@
 'use strict';
 
-exports.swap = function(x, y) {
+module.exports.swap = function(x, y) {
+
   var dx = x.data, dy = y.data, tmp
   var ox = x.stride[0]
   var oy = y.stride[0]
@@ -14,7 +15,7 @@ exports.swap = function(x, y) {
 }
 
 
-exports.scal = function(alpha, x) {
+module.exports.scal = function(alpha, x) {
   var dx = x.data
   var ox = x.stride[0]
   var px = x.offset
@@ -23,7 +24,7 @@ exports.scal = function(alpha, x) {
   }
 }
 
-exports.copy = function(x, y) {
+module.exports.copy = function(x, y) {
   var dx = x.data, dy = y.data
   var ox = x.stride[0]
   var oy = y.stride[0]
@@ -34,7 +35,7 @@ exports.copy = function(x, y) {
   }
 }
 
-exports.axpy = function(alpha, x, y) {
+module.exports.axpy = function(alpha, x, y) {
   var dx = x.data, dy = y.data
   var ox = x.stride[0]
   var oy = y.stride[0]
@@ -45,7 +46,7 @@ exports.axpy = function(alpha, x, y) {
   }
 }
 
-exports.dot = function(x,y) {
+module.exports.dot = function(x,y) {
   var i, tmp
   var dx = x.data
   var ox = x.stride[0]
@@ -69,7 +70,7 @@ exports.dot = function(x,y) {
 }
 
 
-exports.cpsc = function(alpha, x, y) {
+module.exports.cpsc = function(alpha, x, y) {
   var dx = x.data, dy = y.data
   var ox = x.stride[0]
   var oy = y.stride[0]
@@ -80,7 +81,7 @@ exports.cpsc = function(alpha, x, y) {
   }
 }
 
-exports.nrm2 = function(x) {
+module.exports.nrm2 = function(x) {
   var i, tmp
   var dx = x.data
   var ox = x.stride[0]
@@ -93,7 +94,7 @@ exports.nrm2 = function(x) {
   return Math.sqrt(sum)
 }
 
-exports.asum = function(x) {
+module.exports.asum = function(x) {
   var i, tmp
   var dx = x.data
   var ox = x.stride[0]
@@ -105,7 +106,7 @@ exports.asum = function(x) {
   return sum
 }
 
-exports.iamax = function(x) {
+module.exports.iamax = function(x) {
   var i, tmp, imax, xmax = -Infinity
   var dx = x.data
   var ox = x.stride[0]

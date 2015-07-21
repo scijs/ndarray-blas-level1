@@ -14,15 +14,15 @@ This library implements the basic vector operations of the Level 1 Basic Linear 
 
 | Function | Operation | Description |
 | -------- | --------- | ----------- |
-| `swap(x,y)` | <img alt="x &bsol;leftrightarrow y" valign="middle" src="images/x-leftrightarrow-y-9aed41cf97.png" width="57" height="16.5"> | Swap the elements of x and y |
-| `scal(alpha,x)` | <img alt="x &bsol;leftarrow &bsol;alpha x" valign="middle" src="images/x-leftarrow-alpha-x-daa7a2db38.png" width="71" height="13"> | Multiple vector x by scalar alpha |
-| `copy(x,y)` | <img alt="y &bsol;leftarrow x" valign="middle" src="images/y-leftarrow-x-dc4dfb7fd0.png" width="57" height="16.5"> | Copy x into y |
-| `axpy(alpha, x, y)` | <img alt="y &bsol;leftarrow &bsol;alpha x &plus; y" valign="middle" src="images/y-leftarrow-alpha-x-y-812ce8de82.png" width="105" height="19.5"> | Multiple x by alpha and add it to y |
-| `cpsc(alpha, x, y)` | <img alt="y &bsol;leftarrow &bsol;alpha x" valign="middle" src="images/y-leftarrow-alpha-x-bc5d06c8ea.png" width="70" height="16.5"> | Multiply x by alpha and assign it to y |
-| `dot(x,y)` | <img alt="dot &bsol;leftarrow x&Hat;T y" valign="middle" src="images/dot-leftarrow-xt-y-25cde5531d.png" width="97" height="25"> | Calculate the inner product of x and y. |
-| `nrm2(x)` | <img alt="nrm2 &bsol;leftarrow &vert;&vert;x&vert;&vert;&lowbar;2" valign="middle" src="images/nrm2-leftarrow-x_2-75057a8787.png" width="126.5" height="24">| Calculate the 2-norm of x |
-| `asum(x)` | <img alt="asum &bsol;leftarrow &vert;&vert;x&vert;&vert;&lowbar;1" valign="middle" src="images/asum-leftarrow-x_1-ae4c1bf200.png" width="126.5" height="24"> | Calculate the 1-norm of x |
-| `iamax(x)` |  <img alt="&bsol;underset&lcub;i&rcub; &lcub;&bsol;mathrm&lcub;argmax&rcub;&rcub; &vert;x&lowbar;i&vert;" valign="middle" src="images/underseti-mathrmargmax-x_i-2aaceffdc3.png" width="98" height="37.5"> | the argmax of x |
+| `swap(x,y)` | $x \leftrightarrow y$ | Swap the elements of x and y |
+| `scal(alpha,x)` | $x \leftarrow \alpha x$ | Multiple vector x by scalar alpha |
+| `copy(x,y)` | $y \leftarrow x$ | Copy x into y |
+| `axpy(alpha, x, y)` | $ y \leftarrow \alpha x + y$ | Multiple x by alpha and add it to y |
+| `cpsc(alpha, x, y)` | $ y \leftarrow \alpha x $ | Multiply x by alpha and assign it to y |
+| `dot(x,y)` | $ dot \leftarrow x^T y$ | Calculate the inner product of x and y. |
+| `nrm2(x)` | $ nrm2 \leftarrow ||x||_2 $| Calculate the 2-norm of x |
+| `asum(x)` | $ asum \leftarrow ||x||_1 $ | Calculate the 1-norm of x |
+| `iamax(x)` |  $ \underset{i} {\mathrm{argmax}} |x_i| $ | the argmax of x |
 
 ## Example
 

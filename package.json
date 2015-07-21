@@ -1,6 +1,6 @@
 {
   "name": "ndarray-blas-level1",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "BLAS Level 1 operations for ndarrays",
   "main": "index.js",
   "author": "Ricky Reusser",
@@ -10,7 +10,9 @@
     "url": "git://github.com/scijs/ndarray-blas-level1.git"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "node test/test.js | tap-spec",
+    "testv8": "node --allow-natives-syntax test/optimization.js | tap-spec",
+    "testbrowser": "browserify test/test.js > bundle.js && echo '<script src=\"bundle.js\"></script>' > test/test.html",
     "lint": "jshint **.js"
   },
   "keywords": [
@@ -20,19 +22,18 @@
     "linearalgebra"
   ],
   "devDependencies": {
-    "chai": "*",
+    "gulp-filter": "^2.0.2",
+    "gulp-latex": "^0.1.2",
+    "gulp-markdown-equations": "^0.1.1",
+    "gulp-pdftocairo": "^0.1.3",
+    "gulp-tap": "^0.1.3",
     "jshint": "*",
-    "mocha": "*",
     "ndarray": "^1.0.16",
     "ndarray-ops": "^1.2.2",
-    "ndarray-scratch": "^1.1.1"
+    "ndarray-scratch": "^1.1.1",
+    "optimized": "^1.2.0",
+    "tap-spec": "^4.0.2",
+    "tape": "^4.0.0"
   },
-  "dependencies": {
-    "cwise": "^1.0.5"
-  },
-  "browserify": {
-    "transform": [
-      "cwise"
-    ]
-  }
+  "dependencies": {}
 }
