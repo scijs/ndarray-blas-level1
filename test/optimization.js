@@ -24,6 +24,11 @@ function unoptimizable(a,b) {
   try { return c = a + b } catch(e) { }
 }
 
+test('rotg', function(t) {
+  t.assert( optimized( blas1.drotg, [1, 2, [0,0,0]] ), 'optimized' )
+  t.end()
+});
+
 test('swap', function(t) {
   t.assert( optimized( blas1.swap, [a, b] ), 'optimized' )
   t.end()
