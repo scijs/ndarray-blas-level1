@@ -35,7 +35,7 @@ test('rotg', function(t) {
   var f = a.get(0)
   var g = a.get(1)
   
-  blas1.drotg(f, g, csr)
+  blas1.rotg(f, g, csr)
   var c = csr[0]
   var s = csr[1]
   var r = csr[2]

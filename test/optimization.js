@@ -25,7 +25,7 @@ function unoptimizable(a,b) {
 }
 
 test('rotg', function(t) {
-  t.assert( optimized( blas1.drotg, [1, 2, [0,0,0]] ), 'optimized' )
+  t.assert( optimized( blas1.rotg, [1, 2, [0,0,0]] ), 'optimized' )
   t.end()
 });
 
