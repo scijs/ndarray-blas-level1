@@ -1,5 +1,13 @@
 'use strict';
 
+Math.sign = Math.sign || function(x) {
+  x = +x // convert to a number
+  if (x === 0 || isNaN(x)) {
+    return x
+  }
+  return (x > 0 ? 1 : -1)
+}
+
 module.exports.rotg = function(a, b, csr) {
   // Based on Algorithm 4 from "Discontinuous Plane
   // Rotations and the Symmetric Eigenvalue Problem" 
