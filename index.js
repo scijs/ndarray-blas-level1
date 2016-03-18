@@ -1,5 +1,49 @@
 'use strict';
 
+Math.sign = Math.sign || function(x) {
+  x = +x // convert to a number
+  if (x === 0 || isNaN(x)) {
+    return x
+  }
+  return (x > 0 ? 1 : -1)
+}
+
+module.exports.rotg = function(a, b, csr) {
+  // Based on Algorithm 4 from "Discontinuous Plane
+  // Rotations and the Symmetric Eigenvalue Problem" 
+  // by Anderson, 2000.
+  var c = 0, s = 0, r = 0, z = 0, t = 0, u = 0
+  if(b === 0) {
+    c = Math.sign(a)
+    s = 0
+    r = Math.abs(a)
+  } else if(a === 0) {
+    c = 0
+    s = Math.sign(b)
+    r = Math.abs(b)
+  } else if (Math.abs(a) > Math.abs(b)) {
+    t = b / a
+    u = Math.sign(a) * Math.sqrt(1 + t*t)
+    c = 1.0 / u
+    s = t * c
+    r = a * u
+  } else {
+    t = a / b
+    u = Math.sign(a) * Math.sqrt(1 + t*t)
+    s = 1.0 / u
+    c = t * s
+    r = b * u
+  }
+  // try to save some unnecessary object creation
+  if(csr !== undefined && csr.length > 2) {
+    csr[0] = c
+    csr[1] = s
+    csr[2] = r
+  } else {
+    return [c,s,r];
+  }
+}
+
 module.exports.swap = function(x, y) {
 
   var dx = x.data, dy = y.data, tmp
@@ -13,7 +57,6 @@ module.exports.swap = function(x, y) {
     dy[py] = tmp
   }
 }
-
 
 module.exports.scal = function(alpha, x) {
   var dx = x.data

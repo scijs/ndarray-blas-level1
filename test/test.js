@@ -30,6 +30,27 @@ function test(name,callback) {
   })
 }
 
+test('rotg', function(t) {
+  var csr = new Float64Array(3)
+  var f = a.get(0)
+  var g = a.get(1)
+  
+  blas1.rotg(f, g, csr)
+  var c = csr[0]
+  var s = csr[1]
+  var r = csr[2]
+
+  var err = Math.abs(r - Math.sqrt(f*f + g*g))
+  var tol = 1e-8
+  t.assert(err < tol, 'Expected error '+err+' to be less than tolerance '+tol+'.')
+  err = Math.abs(c - (f/r))
+  t.assert(err < tol, 'Expected error '+err+' to be less than tolerance '+tol+'.')
+  err = Math.abs(s - (g/r))
+  t.assert(err < tol, 'Expected error '+err+' to be less than tolerance '+tol+'.')
+
+  t.end()
+})
+
 test('swap', function(t) {
   blas1.swap(a,b)
   equal( t, b0, a, 1e-8 )
