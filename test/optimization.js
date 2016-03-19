@@ -73,8 +73,12 @@ test('iamax', function (t) {
   t.end();
 });
 
+test('rotg', function (t) {
+  t.assert(optimized(blas1.rotg, [1, 2, [0, 0, 0]]), 'optimized');
+  t.end();
+});
+
 test('unoptimizable sanity-check', function (t) {
   t.assert(!optimized(unoptimizable, [a, b]), 'unoptimized');
   t.end();
 });
-

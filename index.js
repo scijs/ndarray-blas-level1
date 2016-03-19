@@ -9,3 +9,4 @@ module.exports.cpsc = require('./cpsc');
 module.exports.nrm2 = require('./nrm2');
 module.exports.asum = require('./asum');
 module.exports.iamax = require('./iamax');
+module.exports.rotg = require('./rotg');
