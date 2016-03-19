@@ -38,7 +38,7 @@ blas1.axpy( 2, x, y );
 ```
 
 ## License
-&copy; 2015 Scijs. MIT License.
+&copy; 2015 [Scijs](https://github.com/scijs). MIT License.
 
 ## Authors
 Ricky Reusser, Philipp Burckhardt, Tim Bright
