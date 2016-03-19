@@ -41,7 +41,7 @@ blas1.axpy( 2, x, y );
 &copy; 2015 Scijs. MIT License.
 
 ## Authors
-Ricky Reusser
+Ricky Reusser, Philipp Burckhardt, Tim Bright
 
 [travis-image]: https://travis-ci.org/scijs/ndarray-blas-level1.svg?branch=master
 [travis-url]: https://travis-ci.org/scijs/ndarray-blas-level1
