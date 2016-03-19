@@ -10,7 +10,7 @@
     "url": "git://github.com/scijs/ndarray-blas-level1.git"
   },
   "scripts": {
-    "test": "node test/test.js | tap-spec",
+    "test": "semistandard && node test/test.js",
     "testv8": "node --allow-natives-syntax test/optimization.js | tap-spec",
     "testbrowser": "browserify test/test.js > bundle.js && echo '<script src=\"bundle.js\"></script>' > test/test.html",
     "lint": "jshint **.js"
@@ -32,6 +32,7 @@
     "ndarray-ops": "^1.2.2",
     "ndarray-scratch": "^1.1.1",
     "optimized": "^1.2.0",
+    "semistandard": "^7.0.5",
     "tap-spec": "^4.0.2",
     "tape": "^4.0.0"
   },
