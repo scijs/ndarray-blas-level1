@@ -1,6 +1,6 @@
 # ndarray-blas-level1
 
-[![Build Status][travis-image]][travis-url] [![npm version][npm-image]][npm-url]  [![Dependency Status][david-image]][david-url]
+[![Build Status][travis-image]][travis-url] [![npm version][npm-image]][npm-url]  [![Dependency Status][david-image]][david-url] [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 
 [BLAS Level 1 operations](http://www.netlib.org/blas/) for [ndarrays](https://github.com/scijs/ndarray)
 
@@ -23,6 +23,8 @@ This library implements the basic vector operations of the Level 1 Basic Linear 
 | `nrm2(x)` | <img alt="nrm2 &bsol;leftarrow &vert;&vert;x&vert;&vert;&lowbar;2" valign="middle" src="images/nrm2-leftarrow-x_2-805a3d3f22.png" width="126.5" height="33">| Calculate the 2-norm of x |
 | `asum(x)` | <img alt="asum &bsol;leftarrow &vert;&vert;x&vert;&vert;&lowbar;1" valign="middle" src="images/asum-leftarrow-x_1-d6c6e11b98.png" width="126.5" height="33"> | Calculate the 1-norm of x |
 | `iamax(x)` |  <img alt="&bsol;underset&lcub;i&rcub; &lcub;&bsol;mathrm&lcub;argmax&rcub;&rcub; &vert;x&lowbar;i&vert;" valign="middle" src="images/underseti-mathrmargmax-x_i-0f60ac97fb.png" width="98" height="46.5"> | the argmax of x |
+| `rotg(a,b)` |  <img alt="" valign="middle" src="images/rotg.png" height="46.5"> | Calculates the Givens rotation parameters [c, s, r]
+ |
 
 ## Example
 
@@ -34,7 +36,7 @@ var blas1 = require('ndarray-blas-level1');
 var x = ndarray([1,2,3]);
 var y = ndarray([3,4,5]);
 
-blas1.axpy( 2, x, y );
+blas1.axpy(2, x, y);
 ```
 
 ## License
