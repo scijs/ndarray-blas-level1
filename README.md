@@ -1,6 +1,6 @@
 # ndarray-blas-level1
 
-[![Build Status](https://travis-ci.org/scijs/ndarray-blas-level1.svg?branch=master)](https://travis-ci.org/scijs/ndarray-blas-level1) [![npm version](https://badge.fury.io/js/ndarray-blas-level1.svg)](http://badge.fury.io/js/ndarray-blas-level1)  [![Dependency Status](https://david-dm.org/scijs/ndarray-blas-level1.svg)](https://david-dm.org/scijs/ndarray-blas-level1)
+[![Build Status][travis-image]][travis-url] [![npm version][npm-image]][npm-url]  [![Dependency Status][david-image]][david-url] [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 
 [BLAS Level 1 operations](http://www.netlib.org/blas/) for [ndarrays](https://github.com/scijs/ndarray)
 
@@ -14,15 +14,17 @@ This library implements the basic vector operations of the Level 1 Basic Linear 
 
 | Function | Operation | Description |
 | -------- | --------- | ----------- |
-| `swap(x,y)` | <img alt="x &bsol;leftrightarrow y" valign="middle" src="images/x-leftrightarrow-y-9aed41cf97.png" width="57" height="16.5"> | Swap the elements of x and y |
-| `scal(alpha,x)` | <img alt="x &bsol;leftarrow &bsol;alpha x" valign="middle" src="images/x-leftarrow-alpha-x-daa7a2db38.png" width="71" height="13"> | Multiple vector x by scalar alpha |
-| `copy(x,y)` | <img alt="y &bsol;leftarrow x" valign="middle" src="images/y-leftarrow-x-dc4dfb7fd0.png" width="57" height="16.5"> | Copy x into y |
-| `axpy(alpha, x, y)` | <img alt="y &bsol;leftarrow &bsol;alpha x &plus; y" valign="middle" src="images/y-leftarrow-alpha-x-y-812ce8de82.png" width="105" height="19.5"> | Multiple x by alpha and add it to y |
-| `cpsc(alpha, x, y)` | <img alt="y &bsol;leftarrow &bsol;alpha x" valign="middle" src="images/y-leftarrow-alpha-x-bc5d06c8ea.png" width="70" height="16.5"> | Multiply x by alpha and assign it to y |
-| `dot(x,y)` | <img alt="dot &bsol;leftarrow x&Hat;T y" valign="middle" src="images/dot-leftarrow-xt-y-25cde5531d.png" width="97" height="25"> | Calculate the inner product of x and y. |
-| `nrm2(x)` | <img alt="nrm2 &bsol;leftarrow &vert;&vert;x&vert;&vert;&lowbar;2" valign="middle" src="images/nrm2-leftarrow-x_2-75057a8787.png" width="126.5" height="24">| Calculate the 2-norm of x |
-| `asum(x)` | <img alt="asum &bsol;leftarrow &vert;&vert;x&vert;&vert;&lowbar;1" valign="middle" src="images/asum-leftarrow-x_1-ae4c1bf200.png" width="126.5" height="24"> | Calculate the 1-norm of x |
-| `iamax(x)` |  <img alt="&bsol;underset&lcub;i&rcub; &lcub;&bsol;mathrm&lcub;argmax&rcub;&rcub; &vert;x&lowbar;i&vert;" valign="middle" src="images/underseti-mathrmargmax-x_i-2aaceffdc3.png" width="98" height="37.5"> | the argmax of x |
+| `swap(x,y)` | <img alt="x &bsol;leftrightarrow y" valign="middle" src="images/x-leftrightarrow-y-d6701cce16.png" width="57" height="32"> | Swap the elements of x and y |
+| `scal(alpha,x)` | <img alt="x &bsol;leftarrow &bsol;alpha x" valign="middle" src="images/x-leftarrow-alpha-x-ac5492ee2b.png" width="71" height="28"> | Multiple vector x by scalar alpha |
+| `copy(x,y)` | <img alt="y &bsol;leftarrow x" valign="middle" src="images/y-leftarrow-x-102cdc5897.png" width="57" height="32"> | Copy x into y |
+| `axpy(alpha, x, y)` | <img alt="y &bsol;leftarrow &bsol;alpha x &plus; y" valign="middle" src="images/y-leftarrow-alpha-x-y-bd020b1eff.png" width="105" height="32"> | Multiple x by alpha and add it to y |
+| `cpsc(alpha, x, y)` | <img alt="y &bsol;leftarrow &bsol;alpha x" valign="middle" src="images/y-leftarrow-alpha-x-38418573e1.png" width="70" height="32"> | Multiply x by alpha and assign it to y |
+| `dot(x,y)` | <img alt="dot &bsol;leftarrow x&Hat;T y" valign="middle" src="images/dot-leftarrow-xt-y-7c5dabdf33.png" width="97" height="32"> | Calculate the inner product of x and y. |
+| `nrm2(x)` | <img alt="nrm2 &bsol;leftarrow &vert;&vert;x&vert;&vert;&lowbar;2" valign="middle" src="images/nrm2-leftarrow-x_2-805a3d3f22.png" width="126.5" height="33">| Calculate the 2-norm of x |
+| `asum(x)` | <img alt="asum &bsol;leftarrow &vert;&vert;x&vert;&vert;&lowbar;1" valign="middle" src="images/asum-leftarrow-x_1-d6c6e11b98.png" width="126.5" height="33"> | Calculate the 1-norm of x |
+| `iamax(x)` |  <img alt="&bsol;underset&lcub;i&rcub; &lcub;&bsol;mathrm&lcub;argmax&rcub;&rcub; &vert;x&lowbar;i&vert;" valign="middle" src="images/underseti-mathrmargmax-x_i-0f60ac97fb.png" width="98" height="46.5"> | the argmax of x |
+| `rotg(a,b)` |  <img alt="" valign="middle" src="images/rotg.png" height="46.5"> | Calculates the Givens rotation parameters [c, s, r]
+ |
 
 ## Example
 
@@ -34,12 +36,18 @@ var blas1 = require('ndarray-blas-level1');
 var x = ndarray([1,2,3]);
 var y = ndarray([3,4,5]);
 
-blas1.axpy( 2, x, y );
+blas1.axpy(2, x, y);
 ```
 
+## License
+&copy; 2015 [Scijs](https://github.com/scijs). MIT License.
 
+## Authors
+Ricky Reusser, Philipp Burckhardt, Tim Bright
 
-
-
-## Credits
-(c) 2015 Ricky Reusser. MIT License
+[travis-image]: https://travis-ci.org/scijs/ndarray-blas-level1.svg?branch=master
+[travis-url]: https://travis-ci.org/scijs/ndarray-blas-level1
+[npm-image]: https://badge.fury.io/js/ndarray-blas-level1.svg
+[npm-url]: http://badge.fury.io/js/ndarray-blas-level1
+[david-image]: https://david-dm.org/scijs/ndarray-blas-level1.svg
+[david-url]: https://david-dm.org/scijs/ndarray-blas-level1
