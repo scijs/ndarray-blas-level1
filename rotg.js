@@ -13,22 +13,22 @@ module.exports = function rotg (a, b, csr) {
   var u = 0;
 
   if (b === 0) {
-    c = Math.sign(a);
+    c = sign(a);
     s = 0;
     r = Math.abs(a);
   } else if (a === 0) {
     c = 0;
-    s = Math.sign(b);
+    s = sign(b);
     r = Math.abs(b);
   } else if (Math.abs(a) > Math.abs(b)) {
     t = b / a;
-    u = Math.sign(a) * Math.sqrt(1 + t * t);
+    u = sign(a) * Math.sqrt(1 + t * t);
     c = 1 / u;
     s = t * c;
     r = a * u;
   } else {
     t = a / b;
-    u = Math.sign(a) * Math.sqrt(1 + t * t);
+    u = sign(a) * Math.sqrt(1 + t * t);
     s = 1 / u;
     c = t * s;
     r = b * u;
