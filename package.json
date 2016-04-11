@@ -10,9 +10,9 @@
     "url": "git://github.com/scijs/ndarray-blas-level1.git"
   },
   "scripts": {
-    "test": "semistandard && node test/test.js",
-    "testv8": "node --allow-natives-syntax test/optimization.js | tap-spec",
-    "testbrowser": "browserify test/test.js > bundle.js && echo '<script src=\"bundle.js\"></script>' > test/test.html",
+    "test": "semistandard && mocha test/*.js",
+    "testv8": "node --allow-natives-syntax test/optimization/index.js",
+    "testbrowser": "browserify test/*.js > bundle.js && echo '<script src=\"bundle.js\"></script>' > test/test.html",
     "lint": "semistandard"
   },
   "keywords": [
@@ -22,13 +22,22 @@
     "linear-algebra"
   ],
   "devDependencies": {
+    "almost-equal": "^1.1.0",
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
     "ndarray": "^1.0.16",
     "ndarray-ops": "^1.2.2",
     "ndarray-scratch": "^1.1.1",
+    "ndarray-tests": "^1.3.0",
     "optimized": "^1.2.0",
-    "semistandard": "^7.0.5",
-    "tap-spec": "^4.0.2",
-    "tape": "^4.0.0"
+    "semistandard": "^7.0.5"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "semistandard": {
+    "globals": [
+      "describe",
+      "it",
+      "beforeEach"
+    ]
+  }
 }
