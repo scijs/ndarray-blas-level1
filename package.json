@@ -26,6 +26,7 @@
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "ndarray": "^1.0.16",
+    "ndarray-proxy": "^1.0.0",
     "ndarray-tests": "^1.3.0",
     "optimized": "^1.2.0",
     "semistandard": "^7.0.5"
