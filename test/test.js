@@ -75,6 +75,8 @@ test('dot (with identical input simplification)', function (t) {
 
 test('nrm2', function (t) {
   t.assert(Math.abs(blas1.nrm2(a) - Math.sqrt(1 * 1 + 2 * 2 + 3 * 3 + 4 * 4)) < 1e-8);
+  t.assert(Math.abs(blas1.nrm2(ndarray(new Float64Array([3.00e-300, 4.00e-300]))) - 5e-300) < 1e-8);
+  t.assert(Math.abs(blas1.nrm2(ndarray(new Float64Array([5.00e+300, 1.20e+301]))) - 1.3e+301) < 1e-8);
   t.end();
 });
 
